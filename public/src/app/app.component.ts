@@ -14,10 +14,9 @@ export class AppComponent {
   newCake : cakeI;
   newrating : ratingI;
   clickedCake : cakeI;
-  selectedAverage : number;
 
-  constructor(private _httpService: HttpService){}
-
+        // tslint:disable-next-line: no-debugger
+  constructor(private _httpService: HttpService, ){}
     // tslint:disable-next-line: use-lifecycle-interface
     ngOnInit() {
       this.getAllCakes();
@@ -26,6 +25,7 @@ export class AppComponent {
     }
 
     getAllCakes(){
+      // tslint:disable-next-line: no-debugger
       let cakeObservable = this._httpService.getAllCakes();
       cakeObservable.subscribe((theCakes : cakeI[]) => {
         this.allCakes = theCakes;
