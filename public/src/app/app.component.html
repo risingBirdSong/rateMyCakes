@@ -1,0 +1,46 @@
+<h1>welcome to cake of cakes</h1>
+
+<div class="container">
+
+
+  <div *ngIf="allCakes">
+    <div *ngFor="let cake of allCakes"  class="row">
+
+      <div class="col-md">
+        <h1> <span style="border-bottom: 1px solid;">baked by -></span> : {{cake.bakername}} </h1>
+        <img (click)="clickTheCake(cake._id)" src="{{cake.imageurl}}" alt="">
+      </div>
+      <div class="col-md">
+        <ul>
+          <h2>submit a new review</h2>
+
+          <form (submit)="onRatingSubmit(cake._id)">
+            <select name="newrating" id="" [(ngModel)]="newrating.numberrating">
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+              <option value=5>5</option>
+            </select>
+            <p>type your comment here</p>
+            <textarea name="newrating" id="" cols="20" rows="7" [(ngModel)]="newrating.content"></textarea>
+            <input type="submit"> rate it!
+          </form>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<h2>submit a cake to be rated</h2>
+<p>bound ===> {{newCake.bakername}} , {{newCake.imageurl}}</p>
+<form (submit)="onCakeSubmit()">
+  <input type="text" name="bakername" [(ngModel)]="newCake.bakername"> bakername
+  <input type="text" name="imageurl" [(ngModel)]="newCake.imageurl"> imageurl
+  <input type="submit" value="submit cake" />
+</form>
+
+
+<app-selected-cake *ngIf="clickedCake" [childSelectedCake]="clickedCake" [averageRating]="selectedAverage"> </app-selected-cake>

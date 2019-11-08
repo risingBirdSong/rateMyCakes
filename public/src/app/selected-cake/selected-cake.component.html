@@ -1,0 +1,10 @@
+<p>selected-cake works!</p>
+<h1>baked by : {{childSelectedCake.bakername}}</h1>
+
+<div *ngFor="let r of childSelectedCake.ratings">
+  <p>{{r.content}} ,,, {{r.numberrating}}</p>
+</div>
+
+<p> the avg => {{averageRating}}</p>
+
+<img src="{{childSelectedCake.imageurl}}" alt="">
